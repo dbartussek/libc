@@ -1429,7 +1429,7 @@ cfg_if! {
 }
 
 cfg_if! {
-    if #[cfg(target_env = "newlib")] {
+    if #[cfg(any(target_env = "newlib", all(target_os = "3ds", target_env = "ctru")))] {
         mod newlib;
         pub use self::newlib::*;
     } else if #[cfg(any(target_os = "linux",

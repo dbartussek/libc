@@ -123,7 +123,7 @@ cfg_if! {
 
         mod vxworks;
         pub use vxworks::*;
-    } else if #[cfg(unix)] {
+    } else if #[cfg(any(unix, all(target_os = "3ds", target_env = "ctru")))] {
         mod fixed_width_ints;
         pub use fixed_width_ints::*;
 
